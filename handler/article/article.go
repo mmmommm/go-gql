@@ -18,8 +18,8 @@ type ArticleGetParams struct{}
 // }
 
 type ArticleView struct {
-	ID  string `json:"id"`
-	Title string `json:"title"`
+	ID      string `json:"id"`
+	Title   string `json:"title"`
 	Content string `json:"content"`
 }
 

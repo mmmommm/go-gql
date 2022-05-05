@@ -3,8 +3,8 @@ package health
 import (
 	"net/http"
 
-	"github.com/mmmommm/go-gql/database/mysql"
 	"github.com/labstack/echo/v4"
+	"github.com/mmmommm/go-gql/database/mysql"
 )
 
 type HealthHandler func(ctx echo.Context) error

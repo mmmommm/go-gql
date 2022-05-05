@@ -1,8 +1,8 @@
 package echo
 
 import (
-	"github.com/mmmommm/go-gql/handler"
 	"github.com/labstack/echo/v4"
+	"github.com/mmmommm/go-gql/handler"
 )
 
 type EchoServer = *echo.Echo

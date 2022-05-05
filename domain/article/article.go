@@ -1,7 +1,7 @@
 package article
 
 type Article struct {
-	ID string
-	Title string
+	ID      string
+	Title   string
 	Content string
 }

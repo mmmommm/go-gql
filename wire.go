@@ -1,9 +1,10 @@
 //go:build wireinject
 // +build wireinject
 
-package main
+package golang_sample
 
 import (
+	"github.com/google/wire"
 	"github.com/mmmommm/go-gql/config"
 	"github.com/mmmommm/go-gql/database"
 	"github.com/mmmommm/go-gql/echo"
@@ -11,7 +12,6 @@ import (
 	"github.com/mmmommm/go-gql/logger"
 	"github.com/mmmommm/go-gql/repository"
 	"github.com/mmmommm/go-gql/usecase"
-	"github.com/google/wire"
 )
 
 type EntryPoint struct {

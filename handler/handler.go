@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"github.com/mmmommm/go-gql/handler/health"
 	"github.com/mmmommm/go-gql/handler/article"
+	"github.com/mmmommm/go-gql/handler/health"
 )
 
 func ProvideHandler(
@@ -10,12 +10,12 @@ func ProvideHandler(
 	health health.HealthHandler,
 ) *Handler {
 	return &Handler{
-		HealthHandler: health,
+		HealthHandler:     health,
 		ArticleGetHandler: articleGet,
 	}
 }
 
 type Handler struct {
 	ArticleGetHandler article.ArticleGetHandler
-	HealthHandler health.HealthHandler
+	HealthHandler     health.HealthHandler
 }
