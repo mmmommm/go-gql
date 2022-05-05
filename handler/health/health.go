@@ -9,7 +9,7 @@ import (
 
 type HealthHandler func(ctx echo.Context) error
 
-func ProvideHealthHandler(mysqlClient mysql.MysqlClient) HealthHandler {
+func ProvideHealthHandler(mysqlClient *mysql.MysqlClient) HealthHandler {
 	return func(c echo.Context) error {
 		// statusCmd := redisClient.Client.Ping(context.Background())
 		// if statusCmd == nil {
