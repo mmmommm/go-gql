@@ -10,7 +10,7 @@ RUN go build -o ./bin/api ./cmd/
 
 FROM debian:bullseye-slim
 
-RUN apt update && apt install -y ca-certificates
+RUN apt update && apt install -y
 
 WORKDIR /workspace
 COPY database/migrations/ /workspace/database/migrations/

@@ -1,0 +1,5 @@
+FROM mysql:8.0
+
+COPY db/initdb.d /docker-entrypoint-initdb.d/initdb.d
+EXPOSE 3306
+COPY db/my.conf /etc/mysql/conf.d/my.cnf

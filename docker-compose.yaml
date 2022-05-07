@@ -11,9 +11,9 @@ services:
       - .:/go/src/app
     ports:
       - 9090:9090
-    environment:
-      AWS_ACCESS_KEY_ID: "local_key"
-      AWS_SECRET_ACCESS_KEY: "local_secret"
+    # environment:
+    #   AWS_ACCESS_KEY_ID: "local_key"
+    #   AWS_SECRET_ACCESS_KEY: "local_secret"
     depends_on:
       dev_db:
         condition: service_healthy
@@ -47,53 +47,53 @@ services:
       retries: 5
       start_period: 30s
 
-  dev-sqs:
-    image: "softwaremill/elasticmq-native"
-    ports:
-      - "9324:9324"
-      - "9325:9325"
-    volumes:
-      - type: bind
-        source: "./batch/sqs/custom.conf"
-        target: "/opt/elasticmq.conf"
-    networks:
-      - local_network
+  # dev-sqs:
+  #   image: "softwaremill/elasticmq-native"
+  #   ports:
+  #     - "9324:9324"
+  #     - "9325:9325"
+  #   volumes:
+  #     - type: bind
+  #       source: "./batch/sqs/custom.conf"
+  #       target: "/opt/elasticmq.conf"
+  #   networks:
+  #     - local_network
 
-  dev_batch:
-    build:
-      context: .
-      dockerfile: ./batch/Dockerfile
-    container_name: dev_batch
-    tty: true
-    volumes:
-      - type: bind
-        source: "./batch/timeline_handler"
-        target: "/timeline_handler"
-    environment:
-      MYSQL_DATABASE: ${DATABASE}
-      MYSQL_USER: ${USERNAME}
-      MYSQL_PASSWORD: ${USERPASS}
-      MYSQL_ROOT_PASSWORD: ${ROOTPASS}
-      MYSQL_HOST: "dev_db"
-    networks:
-      - local_network
+  # dev_batch:
+  #   build:
+  #     context: .
+  #     dockerfile: ./batch/Dockerfile
+  #   container_name: dev_batch
+  #   tty: true
+  #   volumes:
+  #     - type: bind
+  #       source: "./batch/timeline_handler"
+  #       target: "/timeline_handler"
+  #   environment:
+  #     MYSQL_DATABASE: ${DATABASE}
+  #     MYSQL_USER: ${USERNAME}
+  #     MYSQL_PASSWORD: ${USERPASS}
+  #     MYSQL_ROOT_PASSWORD: ${ROOTPASS}
+  #     MYSQL_HOST: "dev_db"
+  #   networks:
+  #     - local_network
 
-  dev_redis:
-    image: "redis:latest"
-    ports:
-      - "6379:6379"
-    volumes:
-      - type: volume
-        source: redis-data-dev
-        target: /data
-    networks:
-      - local_network
+  # dev_redis:
+  #   image: "redis:latest"
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - type: volume
+  #       source: redis-data-dev
+  #       target: /data
+  #   networks:
+  #     - local_network
 
 volumes:
   data-dev:
     driver: local
-  redis-data-dev:
-    driver: local
+  # redis-data-dev:
+  #   driver: local
 
 networks:
   local_network:
