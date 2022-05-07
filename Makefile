@@ -4,11 +4,11 @@ GOMOCK = "$(shell ls ${GOPATH}/bin | grep gomock)"
 
 .PHONY: up
 up:
-	docker-compose up
+	docker-compose up -d
 
 .PHONY: donw
 down:
-	docker-compose down
+	docker-compose down -v
 
 .PHONY: integration-test
 integration-test:
