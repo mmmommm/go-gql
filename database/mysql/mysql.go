@@ -48,7 +48,7 @@ func ProvideMysqlClient(config *config.Config) (*MysqlClient, error) {
 			return nil, err
 		}
 	}
-	
+
 	log.Printf("database running on %s\n", config.DBAddr())
 	return client, nil
 }

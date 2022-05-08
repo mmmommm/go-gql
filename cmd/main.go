@@ -1,6 +1,6 @@
 package main
 
-import(
+import (
 	backend "github.com/mmmommm/go-gql"
 )
 
