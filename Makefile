@@ -47,3 +47,7 @@ ifneq (wire, $(shell echo $(WIRE)))
 	go install github.com/google/wire/cmd/wire@latest
 endif
 	$(GOPATH)/bin/wire
+
+.PHTONY: gql
+gql:
+	go run github.com/99designs/gqlgen
