@@ -26,6 +26,7 @@ func applyArticleGetView(article []*domain.Article) *ArticleGetView {
 		Article: article,
 	}
 }
+
 func ProvideArticleGetHandler(uc usecase.ArticleGetCase) ArticleGetHandler {
 	return func(ctx echo.Context) error {
 		articles, err := uc(ctx.Request().Context())
