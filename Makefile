@@ -29,16 +29,6 @@ docker-build-nocache:
 .PHONY: generate
 generate:
 	go generate -x ./...
-	go run github.com/swaggo/swag/cmd/swag init -g cmd/main.go --output  ./docs
-
-# デバッグ用途で、手動でimageをpushしたい時に利用.
-# 下記コマンドを実行するのにperman認証が必要.
-.PHONY: image-build-push
-image-build-push:
-	aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 176285604616.dkr.ecr.ap-northeast-1.amazonaws.com
-	docker build -t api .
-	docker tag api:latest 176285604616.dkr.ecr.ap-northeast-1.amazonaws.com/api:latest
-	docker push 176285604616.dkr.ecr.ap-northeast-1.amazonaws.com/api:latest
 
 # wireによるコード生成
 .PHONY: wire
