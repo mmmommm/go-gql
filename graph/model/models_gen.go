@@ -5,7 +5,7 @@ package model
 type Article struct {
 	ID      string `json:"id"`
 	Title   string `json:"title"`
-	Content bool   `json:"content"`
+	Content string `json:"content"`
 }
 
 type NewArticle struct {
